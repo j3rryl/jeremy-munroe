@@ -17,7 +17,7 @@ export default function AboutScroller() {
   return (
     <Card
       isBlurred
-      className="border-none bg-background/60 dark:bg-default-100/50 max-w-[610px]"
+      className="border-none bg-background/60 dark:bg-default-100/50 max-w-[610px] mx-auto my-5"
       shadow="sm"
     >
       <CardBody>
