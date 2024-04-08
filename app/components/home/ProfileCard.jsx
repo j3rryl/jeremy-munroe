@@ -60,7 +60,7 @@ export default function ProfileCard() {
           <p className=" text-default-500 text-small">Following</p>
         </div>
         <div className="flex gap-1">
-          <p className="font-semibold text-default-500 text-small">97.1K</p>
+          <p className="font-semibold text-default-500 text-small">18.9K</p>
           <p className="text-default-500 text-small">Followers</p>
         </div>
       </CardFooter>
