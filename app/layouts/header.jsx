@@ -33,7 +33,7 @@ export default function Header() {
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="/home">
             Home
           </Link>
         </NavbarItem>
@@ -43,7 +43,7 @@ export default function Header() {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="/home/about">
             About
           </Link>
         </NavbarItem>

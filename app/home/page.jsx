@@ -1,12 +1,21 @@
 import React from "react";
-import { Card, CardBody } from "@nextui-org/card";
+import ProfileCard from "../components/home/ProfileCard";
+import ProjectsCard from "../components/home/ProjectsCard";
 const Page = () => {
   return (
-    <Card className="mx-5">
-      <CardBody>
-        <p>Previos Projects</p>
-      </CardBody>
-    </Card>
+    <>
+      <ProfileCard />
+      <div className="m-5 flex justify-between items-center">
+        <p className="font-bold">Portfolio</p>
+        <p className="text-primary">View all</p>
+      </div>
+      <ProjectsCard />
+      <div className="m-5 flex justify-between items-center">
+        <p className="font-bold">My Developer Kit</p>
+        <p className="text-primary">View all</p>
+      </div>
+      {/* <ProjectsCard /> */}
+    </>
   );
 };
 
