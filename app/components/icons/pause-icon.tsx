@@ -1,5 +1,16 @@
 import React from "react";
-export const PauseCircleIcon = ({ size = 24, width, height, ...props }) => (
+interface PauseCircleIconProps {
+  size?: number;
+  width?: number;
+  height?: number;
+}
+
+export const PauseCircleIcon: React.FC<PauseCircleIconProps> = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}) => (
   <svg
     aria-hidden="true"
     fill="none"

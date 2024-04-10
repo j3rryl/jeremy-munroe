@@ -10,9 +10,33 @@ import { PauseCircleIcon } from "../icons/pause-icon";
 import { PreviousIcon } from "../icons/previous-icon";
 import { RepeatOneIcon } from "../icons/repeat-icon";
 import { HeartIcon } from "../icons/heart-icon";
+import { AboutModel } from "@/models/AboutModel";
 
-export default function AboutScroller() {
+interface AboutScrollerProps {
+  handleOnNextClick: () => void;
+  handleOnPreviousClick: () => void;
+  activeItem: AboutModel;
+}
+const AboutScroller: React.FC<AboutScrollerProps> = ({
+  handleOnNextClick,
+  handleOnPreviousClick,
+  activeItem,
+}) => {
   const [liked, setLiked] = React.useState(false);
+  const calculateDifferenceInYears = (startDate: Date, endDate: Date) => {
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    const yearDifference = end.getFullYear() - start.getFullYear();
+    if (yearDifference === 0) {
+      // If years is 0, calculate difference in months
+      const months = (end.getFullYear() - start.getFullYear()) * 12;
+      const monthDifference = end.getMonth() - start.getMonth();
+      return `${months + monthDifference + 1} Months`;
+    } else {
+      // If years is not 0, return year difference
+      return `${yearDifference} Years`;
+    }
+  };
 
   return (
     <Card
@@ -25,22 +49,27 @@ export default function AboutScroller() {
           <div className="relative col-span-6 md:col-span-4">
             <Image
               alt="Album cover"
-              className="object-cover"
-              height={200}
-              shadow="md"
-              src="https://nextui.org/images/album-cover.png"
-              width="100%"
+              className="!w-full !h-32 object-contain"
+              isBlurred
+              src={activeItem.imageUrl}
             />
           </div>
 
           <div className="flex flex-col col-span-6 md:col-span-8">
             <div className="flex justify-between items-start">
               <div className="flex flex-col gap-0">
-                <h3 className="font-semibold text-foreground/90">
-                  Time capsule
+                <h3 className="font-semibold text-default-500">
+                  {activeItem.type}
                 </h3>
-                <p className="text-small text-foreground/80">12 Tracks</p>
-                <h1 className="text-large font-medium mt-2">Work Experience</h1>
+                <p className="text-small text-foreground/80">
+                  {calculateDifferenceInYears(
+                    activeItem.startDate,
+                    activeItem.endDate
+                  )}
+                </p>
+                <h1 className="text-large font-medium mt-2">
+                  {activeItem.title}
+                </h1>
               </div>
               <Button
                 isIconOnly
@@ -89,6 +118,7 @@ export default function AboutScroller() {
                 radius="full"
                 variant="light"
                 color="primary"
+                onPress={handleOnPreviousClick}
               >
                 <PreviousIcon />
               </Button>
@@ -107,6 +137,7 @@ export default function AboutScroller() {
                 radius="full"
                 variant="light"
                 color="primary"
+                onPress={handleOnNextClick}
               >
                 <NextIcon />
               </Button>
@@ -125,4 +156,6 @@ export default function AboutScroller() {
       </CardBody>
     </Card>
   );
-}
+};
+
+export default AboutScroller;

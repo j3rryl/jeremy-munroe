@@ -1,10 +1,20 @@
 import React from "react";
-export const HeartIcon = ({
+interface HeartIconProps {
+  size?: number;
+  width?: number;
+  height?: number;
+  strokeWidth?: number;
+  className?: string;
+  fill?: string;
+}
+
+export const HeartIcon: React.FC<HeartIconProps> = ({
   size = 24,
   width,
   height,
   strokeWidth = 1.5,
   fill = "none",
+  className,
   ...props
 }) => (
   <svg
