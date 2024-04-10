@@ -29,7 +29,11 @@ const Page = () => {
   );
   const activeItemObj = reorderedItems.splice(activeIndex, 1)[0];
   reorderedItems.unshift(activeItemObj);
-
+  const options = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
   return (
     <>
       <AboutScroller
@@ -40,8 +44,16 @@ const Page = () => {
       {reorderedItems.map((item) => {
         return (
           <Card key={item.id} className="m-5">
-            <CardHeader>{item.title}</CardHeader>
-            <CardBody>{item.content}</CardBody>
+            <CardHeader className="flex-col items-start">
+              <p className="text-primary font-bold">{item.title}</p>
+              <p className="text-default-500 text-sm">{item.type}</p>
+              <p className="text-default-500 text-sm">{`${new Date(
+                item.startDate
+              ).toLocaleString("en-us", options)} to ${new Date(
+                item.endDate
+              ).toLocaleString("en-us", options)}`}</p>
+            </CardHeader>
+            <CardBody className="text-stone">{item.content}</CardBody>
           </Card>
         );
       })}
