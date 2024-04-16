@@ -55,7 +55,7 @@ export const aboutItems: AboutModel[] = [
     Implemented process optimizations within the lab environment to enhance efficiency and user-friendliness, fostering a conducive space for learning and collaboration.
     `,
     startDate: new Date("February 1, 2022"),
-    endDate: new Date("June 30, 2024"),
+    endDate: new Date("June 30, 2023"),
   },
   {
     id: 5,

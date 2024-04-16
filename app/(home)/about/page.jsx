@@ -7,10 +7,6 @@ import React from "react";
 const Page = () => {
   const [activeItem, setActiveItem] = React.useState(aboutItems[0]);
   const [items, setItems] = React.useState(aboutItems);
-  React.useEffect(() => {
-    console.log(activeItem);
-  }, [activeItem]);
-
   const handleOnNextClick = () => {
     const nextIndex = (activeItem.id % items.length) + 1;
     setActiveItem(items.find((item) => item.id === nextIndex));
