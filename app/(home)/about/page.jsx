@@ -7,15 +7,18 @@ import React from "react";
 const Page = () => {
   const [activeItem, setActiveItem] = React.useState(aboutItems[0]);
   const [items, setItems] = React.useState(aboutItems);
+  const [sliderValue, setSliderValue] = React.useState(1);
   const handleOnNextClick = () => {
     const nextIndex = (activeItem.id % items.length) + 1;
     setActiveItem(items.find((item) => item.id === nextIndex));
+    setSliderValue((activeItem.id * 100) / items.length);
   };
 
   const handleOnPreviousClick = () => {
     const previousIndex =
       activeItem.id === 1 ? items.length : activeItem.id - 1;
     setActiveItem(items.find((item) => item.id === previousIndex));
+    setSliderValue((activeItem.id * 100) / items.length);
   };
 
   // Reorder items so that active item appears first
@@ -36,6 +39,7 @@ const Page = () => {
         handleOnNextClick={handleOnNextClick}
         handleOnPreviousClick={handleOnPreviousClick}
         activeItem={activeItem}
+        sliderValue={sliderValue}
       />
       {reorderedItems.map((item) => {
         return (

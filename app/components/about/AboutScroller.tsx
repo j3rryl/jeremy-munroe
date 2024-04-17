@@ -16,13 +16,23 @@ interface AboutScrollerProps {
   handleOnNextClick: () => void;
   handleOnPreviousClick: () => void;
   activeItem: AboutModel;
+  sliderValue: number;
 }
 const AboutScroller: React.FC<AboutScrollerProps> = ({
   handleOnNextClick,
   handleOnPreviousClick,
   activeItem,
+  sliderValue,
 }) => {
   const [liked, setLiked] = React.useState(false);
+  function formatTime(sliderValue: number) {
+    const totalTimeInSeconds = 4 * 60 + 23;
+    const totalTime = (sliderValue / 100) * totalTimeInSeconds;
+
+    const minutes = Math.floor(totalTime / 60);
+    const seconds = Math.floor(totalTime % 60);
+    return `${minutes}:${seconds < 10 ? seconds + "0" : seconds}`;
+  }
   const calculateDifferenceInYears = (startDate: Date, endDate: Date) => {
     const start = new Date(startDate);
     const end = new Date(endDate);
@@ -101,12 +111,12 @@ const AboutScroller: React.FC<AboutScrollerProps> = ({
                   thumb: "w-2 h-2 after:w-2 after:h-2 after:bg-primary",
                 }}
                 color="primary"
-                defaultValue={33}
+                value={sliderValue}
                 size="sm"
               />
               <div className="flex justify-between">
-                <p className="text-small">1:23</p>
-                <p className="text-small text-foreground/50">4:32</p>
+                <p className="text-small">{formatTime(sliderValue)}</p>
+                <p className="text-small text-foreground/50">4:23</p>
               </div>
             </div>
 

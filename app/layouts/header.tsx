@@ -38,7 +38,7 @@ export default function Header() {
           </Link>
         </NavbarItem>
         <NavbarItem isActive>
-          <Link href="#" aria-current="page">
+          <Link href="/projects" aria-current="page">
             Projects
           </Link>
         </NavbarItem>
