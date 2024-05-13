@@ -115,6 +115,30 @@ export default function Header() {
                   variant="bordered"
                   label="Phone Number"
                 />
+                <Button
+                  color="primary"
+                  as={Link}
+                  href="https://github.com/j3rryl"
+                  target="_blank"
+                >
+                  Github
+                </Button>
+                <Button
+                  color="primary"
+                  as={Link}
+                  href="https://www.linkedin.com/in/jeremymunroe0"
+                  target="_blank"
+                >
+                  Linkedin
+                </Button>
+                <Button
+                  color="primary"
+                  as={Link}
+                  href="https://twitter.com/jeremymunroe0"
+                  target="_blank"
+                >
+                  Twitter
+                </Button>
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" variant="light" onPress={onClose}>
