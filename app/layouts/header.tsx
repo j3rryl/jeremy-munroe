@@ -29,7 +29,7 @@ export default function Header() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const menuItems = [
     { name: "Home", url: "/" },
-    { mame: "About", url: "/about" },
+    { name: "About", url: "/about" },
     { name: "Projects", url: "/projects" },
   ];
 
