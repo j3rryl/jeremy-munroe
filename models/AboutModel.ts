@@ -26,7 +26,7 @@ export const aboutItems: AboutModel[] = [
       "https://strathmore.edu/wp-content/uploads/2023/08/University-Logo-01-1.png",
     title: "Strathmore University",
     type: "University",
-    content: "Graduated in June!",
+    content: "Graduating in June!",
     startDate: new Date("June 26, 2020"),
     endDate: new Date("June 28, 2024"),
   },

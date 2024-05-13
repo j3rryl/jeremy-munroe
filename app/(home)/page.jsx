@@ -2,6 +2,7 @@ import React from "react";
 import ProfileCard from "../components/home/ProfileCard";
 import ProjectsCard from "../components/home/ProjectsCard";
 import { Link } from "@nextui-org/link";
+import DeveloperKit from "../components/home/DeveloperKit";
 
 const Page = () => {
   return (
@@ -20,7 +21,8 @@ const Page = () => {
           View all
         </Link>
       </div>
-      {/* <ProjectsCard /> */}
+      <DeveloperKit />
+      <div className="h-12"></div>
     </>
   );
 };
