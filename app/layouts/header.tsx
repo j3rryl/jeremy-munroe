@@ -8,73 +8,126 @@ import {
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
-  Link,
-  Button,
-} from "@nextui-org/react";
+} from "@nextui-org/navbar";
+import { Link } from "@nextui-org/link";
+import { Button } from "@nextui-org/button";
 import { AcmeLogo } from "../components/icons/AcmeLogo";
+import {
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  useDisclosure,
+} from "@nextui-org/modal";
+import { Input } from "@nextui-org/input";
+import { MailIcon } from "../components/icons/mail-icon";
+import { PhoneIcon } from "../components/icons/phone-icon";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const menuItems = ["Home", "About", "Projects"];
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen}>
-      <NavbarContent>
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
-        />
-        <NavbarBrand>
-          <AcmeLogo />
-          <p className="font-bold text-inherit">Jeremy Munroe</p>
-        </NavbarBrand>
-      </NavbarContent>
+    <>
+      <Navbar onMenuOpenChange={setIsMenuOpen}>
+        <NavbarContent>
+          <NavbarMenuToggle
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            className="sm:hidden"
+          />
+          <NavbarBrand>
+            <AcmeLogo />
+            <p className="font-bold text-inherit">Jeremy Munroe</p>
+          </NavbarBrand>
+        </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem>
-          <Link color="foreground" href="/">
-            Home
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive>
-          <Link href="/projects" aria-current="page">
-            Projects
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="/about">
-            About
-          </Link>
-        </NavbarItem>
-      </NavbarContent>
-      <NavbarContent justify="end">
-        <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
-            Contact
-          </Button>
-        </NavbarItem>
-      </NavbarContent>
-      <NavbarMenu>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              color={
-                index === 2
-                  ? "primary"
-                  : index === menuItems.length - 1
-                  ? "danger"
-                  : "foreground"
-              }
-              className="w-full"
-              href="#"
-              size="lg"
-            >
-              {item}
+        <NavbarContent className="hidden sm:flex gap-4" justify="center">
+          <NavbarItem>
+            <Link color="foreground" href="/">
+              Home
             </Link>
-          </NavbarMenuItem>
-        ))}
-      </NavbarMenu>
-    </Navbar>
+          </NavbarItem>
+          <NavbarItem isActive>
+            <Link href="/projects" aria-current="page">
+              Projects
+            </Link>
+          </NavbarItem>
+          <NavbarItem>
+            <Link color="foreground" href="/about">
+              About
+            </Link>
+          </NavbarItem>
+        </NavbarContent>
+        <NavbarContent justify="end">
+          <NavbarItem>
+            <Button color="primary" variant="flat" onPress={onOpen}>
+              Contact
+            </Button>
+          </NavbarItem>
+        </NavbarContent>
+        <NavbarMenu>
+          {menuItems.map((item, index) => (
+            <NavbarMenuItem key={`${item}-${index}`}>
+              <Link
+                color={
+                  index === 2
+                    ? "primary"
+                    : index === menuItems.length - 1
+                    ? "danger"
+                    : "foreground"
+                }
+                className="w-full"
+                href="#"
+                size="lg"
+              >
+                {item}
+              </Link>
+            </NavbarMenuItem>
+          ))}
+        </NavbarMenu>
+      </Navbar>
+
+      <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+        <ModalContent>
+          {(onClose) => (
+            <>
+              <ModalHeader className="flex flex-col gap-1">
+                Contact Me
+              </ModalHeader>
+              <ModalBody>
+                <Input
+                  endContent={
+                    <MailIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
+                  }
+                  isReadOnly
+                  defaultValue="jeremymunroe0@gmail.com"
+                  variant="bordered"
+                  label="Email"
+                />
+                <Input
+                  endContent={
+                    <PhoneIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
+                  }
+                  isReadOnly
+                  defaultValue="+254717436421"
+                  variant="bordered"
+                  label="Phone Number"
+                />
+              </ModalBody>
+              <ModalFooter>
+                <Button color="danger" variant="light" onPress={onClose}>
+                  Close
+                </Button>
+                {/* <Button color="primary" onPress={onClose}>
+                  Action
+                </Button> */}
+              </ModalFooter>
+            </>
+          )}
+        </ModalContent>
+      </Modal>
+    </>
   );
 }

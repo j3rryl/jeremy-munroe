@@ -10,7 +10,7 @@ const Page = () => {
       <ProfileCard />
       <div className="m-5 flex justify-between items-center">
         <p className="font-bold">Portfolio</p>
-        <Link color="primary" href="#">
+        <Link color="primary" href="/projects">
           View all
         </Link>
       </div>
