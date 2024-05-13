@@ -41,6 +41,16 @@ export const projects: ProjectModel[] = [
       The focus was on conceptualizing, designing, and implementing features to optimize content delivery.`,
   },
   {
+    id: 11,
+    title: "Alvocat Fresh Produce",
+    company: "Alvocat",
+    url: "https://alvocatfresh.co.ke",
+    tags: ["React", "NextJS", "MongoDB", "MySql", "Tailwind"],
+    imageUrl:
+      "https://static.vecteezy.com/system/resources/thumbnails/002/861/723/small_2x/cute-kawaii-avocado-with-smile-expression-vector.jpg",
+    content: `This project utilized React, Next.js and Tailwind for spearheading the development of an innovative platform`,
+  },
+  {
     id: 7,
     title: "Upesy Client System Development",
     company: "Upesy",
