@@ -120,9 +120,15 @@ export default function Header() {
                 <Button color="danger" variant="light" onPress={onClose}>
                   Close
                 </Button>
-                {/* <Button color="primary" onPress={onClose}>
-                  Action
-                </Button> */}
+                <Button
+                  color="primary"
+                  onPress={onClose}
+                  as={Link}
+                  href="https://drive.google.com/file/d/1mAudkDxu730UnUyH51Ep7KuFRGHjvCGY/view?usp=drive_link"
+                  target="_blank"
+                >
+                  Download CV
+                </Button>
               </ModalFooter>
             </>
           )}
