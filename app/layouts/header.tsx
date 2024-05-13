@@ -27,7 +27,11 @@ import { PhoneIcon } from "../components/icons/phone-icon";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const menuItems = ["Home", "About", "Projects"];
+  const menuItems = [
+    { name: "Home", url: "/" },
+    { mame: "About", url: "/about" },
+    { name: "Projects", url: "/projects" },
+  ];
 
   return (
     <>
@@ -79,10 +83,10 @@ export default function Header() {
                     : "foreground"
                 }
                 className="w-full"
-                href="#"
+                href={item.url}
                 size="lg"
               >
-                {item}
+                {item.name}
               </Link>
             </NavbarMenuItem>
           ))}
