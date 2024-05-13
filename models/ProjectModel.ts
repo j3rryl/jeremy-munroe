@@ -65,10 +65,10 @@ export const projects: ProjectModel[] = [
     id: 6,
     title: "ALiVE Platform Development",
     company: "Alive (Zizi Afrique)",
-    url: "http://learning.alive-reli.org/",
+    url: "https://learning.alive-reli.org/",
     tags: ["React", "NextJS", "MongoDB", "MySql", "Tailwind"],
     imageUrl:
-      "http://www.alive-reli.org/wp-content/uploads/2021/10/WhatsApp-Image-2024-03-07-at-22.29.37.jpeg",
+      "https://www.alive-reli.org/wp-content/uploads/2021/10/WhatsApp-Image-2024-03-07-at-22.29.37.jpeg",
     content: `This project utilized React, Next.js, MongoDB, MySQL, and Tailwind for spearheading the development of an innovative open-source content distribution platform.
       The focus was on conceptualizing, designing, and implementing features to optimize content delivery.`,
   },

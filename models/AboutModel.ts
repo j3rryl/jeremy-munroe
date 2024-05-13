@@ -72,7 +72,7 @@ export const aboutItems: AboutModel[] = [
   {
     id: 6,
     imageUrl:
-      "http://www.alive-reli.org/wp-content/uploads/2021/10/WhatsApp-Image-2024-03-07-at-22.29.37.jpeg",
+      "https://www.alive-reli.org/wp-content/uploads/2021/10/WhatsApp-Image-2024-03-07-at-22.29.37.jpeg",
     title: "ALiVE (Zizi Afrique)",
     type: "Lead Software Developer",
     content: `As the lead developer at Alive under the Zizi Afrique Foundation, I spearheaded the development of an innovative open-source platform designed to facilitate the targeted distribution of content to clients according to their specific needs. This platform represented a cutting-edge solution aimed at optimizing content delivery strategies and enhancing user engagement.
