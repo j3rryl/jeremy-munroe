@@ -1,11 +1,12 @@
-import { Card, CardBody } from "@nextui-org/card";
+import AllProjectsCard from "@/app/components/home/AllProjectsCard";
 import React from "react";
 
 const Page = () => {
   return (
-    <Card className="mx-5">
-      <CardBody>Helo there!</CardBody>
-    </Card>
+    <>
+      <AllProjectsCard />
+      <div className="h-5"></div>
+    </>
   );
 };
 
