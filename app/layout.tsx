@@ -3,6 +3,7 @@ import "./globals.css";
 import NextTopLoader from "nextjs-toploader";
 import { Provider } from "./layouts/Provider";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +26,7 @@ export default function RootLayout({
         <NextTopLoader color="#008080" showSpinner={false} />
         <Provider>{children}</Provider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
