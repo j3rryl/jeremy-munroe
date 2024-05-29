@@ -24,6 +24,14 @@ import { Input } from "@nextui-org/input";
 import { MailIcon } from "../components/icons/mail-icon";
 import { PhoneIcon } from "../components/icons/phone-icon";
 
+type NextUIColor =
+  | "primary"
+  | "danger"
+  | "foreground"
+  | "secondary"
+  | "success"
+  | "warning";
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -73,7 +81,7 @@ export default function Header() {
         </NavbarContent>
         <NavbarMenu>
           {menuItems.map((item, index) => {
-            let color;
+            let color: NextUIColor;
             if (index === 2) {
               color = "primary";
             } else if (index === menuItems.length - 1) {
