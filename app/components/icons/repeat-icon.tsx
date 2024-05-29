@@ -18,7 +18,6 @@ export const RepeatOneIcon: React.FC<RepeatOneIconProps> = ({
     fill="none"
     focusable="false"
     height={size || height}
-    role="presentation"
     viewBox="0 0 24 24"
     width={size || width}
     {...props}

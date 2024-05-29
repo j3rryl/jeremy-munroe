@@ -3,7 +3,9 @@
 import { NextUIProvider } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 
-export function Provider({ children }: { children: React.ReactNode }) {
+export function Provider({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   const router = useRouter();
 
   return <NextUIProvider navigate={router.push}>{children}</NextUIProvider>;

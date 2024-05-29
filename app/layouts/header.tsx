@@ -72,24 +72,28 @@ export default function Header() {
           </NavbarItem>
         </NavbarContent>
         <NavbarMenu>
-          {menuItems.map((item, index) => (
-            <NavbarMenuItem key={`${item}-${index}`}>
-              <Link
-                color={
-                  index === 2
-                    ? "primary"
-                    : index === menuItems.length - 1
-                    ? "danger"
-                    : "foreground"
-                }
-                className="w-full"
-                href={item.url}
-                size="lg"
-              >
-                {item.name}
-              </Link>
-            </NavbarMenuItem>
-          ))}
+          {menuItems.map((item, index) => {
+            let color;
+            if (index === 2) {
+              color = "primary";
+            } else if (index === menuItems.length - 1) {
+              color = "danger";
+            } else {
+              color = "foreground";
+            }
+            return (
+              <NavbarMenuItem key={item.name}>
+                <Link
+                  color={color}
+                  className="w-full"
+                  href={item.url}
+                  size="lg"
+                >
+                  {item.name}
+                </Link>
+              </NavbarMenuItem>
+            );
+          })}
         </NavbarMenu>
       </Navbar>
 

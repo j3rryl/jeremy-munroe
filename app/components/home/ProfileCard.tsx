@@ -49,9 +49,7 @@ export default function ProfileCard() {
         </p>
         <span className="pt-2">
           #Multilingual Programmer
-          <span className="py-2" aria-label="computer" role="img">
-            💻
-          </span>
+          <span className="py-2">💻</span>
         </span>
       </CardBody>
       <CardFooter className="gap-3">

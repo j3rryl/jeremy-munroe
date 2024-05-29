@@ -9,7 +9,6 @@ export const MailIcon: React.FC<MailIconProps> = ({ className }) => (
     fill="none"
     focusable="false"
     height="1em"
-    role="presentation"
     viewBox="0 0 24 24"
     width="1em"
     className={className}

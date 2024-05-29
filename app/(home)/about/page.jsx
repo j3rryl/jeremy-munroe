@@ -6,7 +6,7 @@ import React from "react";
 
 const Page = () => {
   const [activeItem, setActiveItem] = React.useState(aboutItems[0]);
-  const [items, setItems] = React.useState(aboutItems);
+  const [items] = React.useState(aboutItems);
   const [sliderValue, setSliderValue] = React.useState(1);
   const handleOnNextClick = () => {
     const nextIndex = (activeItem.id % items.length) + 1;

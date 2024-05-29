@@ -36,23 +36,25 @@ const AboutScroller: React.FC<AboutScrollerProps> = ({
   const calculateDifferenceInYears = (startDate: Date, endDate: Date) => {
     const start = new Date(startDate);
     const end = new Date(endDate);
-    // end-> Apr 2024 start->June 2023
     const yearDifference = end.getFullYear() - start.getFullYear();
     const monthDifference = end.getMonth() - start.getMonth();
 
     if (yearDifference === 0) {
       return `${monthDifference + 1} Months`;
     } else if (monthDifference >= 0) {
-      return `${yearDifference} Year${
-        yearDifference > 1 ? "s" : ""
-      } ${monthDifference} Month${monthDifference > 1 ? "s" : ""}`;
+      const yearLabel = yearDifference > 1 ? "Years" : "Year";
+      const monthLabel = monthDifference > 1 ? "Months" : "Month";
+      return `${yearDifference} ${yearLabel} ${monthDifference} ${monthLabel}`;
     } else {
-      // If there are less than 12 months difference
-      return `${
-        yearDifference - 1 >= 1
-          ? `Year ${yearDifference - 1 > 1 ? "s" : ""}`
-          : ""
-      } ${12 + monthDifference} Month${12 + monthDifference > 1 ? "s" : ""}`;
+      const adjustedYearDifference = yearDifference - 1;
+      const adjustedMonthDifference = 12 + monthDifference;
+      const yearLabel = adjustedYearDifference > 1 ? "Years" : "Year";
+      const monthLabel = adjustedMonthDifference > 1 ? "Months" : "Month";
+      const yearPart =
+        adjustedYearDifference >= 1
+          ? `${adjustedYearDifference} ${yearLabel}`
+          : "";
+      return `${yearPart} ${adjustedMonthDifference} ${monthLabel}`;
     }
   };
 

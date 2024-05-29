@@ -38,10 +38,10 @@ const ProjectCard = ({ project }: { project: ProjectModel }) => {
         />
       </CardBody>
       <div className="flex justify-start items-start gap-1 ml-3">
-        {project?.tags?.map((tag, index) => {
+        {project?.tags?.map((tag) => {
           return (
             <Chip
-              key={index}
+              key={tag}
               color={getRandomColor()}
               size="sm"
               className="text-white"
